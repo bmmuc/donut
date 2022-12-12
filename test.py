@@ -44,7 +44,7 @@ def test(args):
             output = pretrained_model.inference(
                 image=sample["image"],
                 prompt=f"<s_{args.task_name}><s_question>{ground_truth['gt_parses'][0]['question'].lower()}</s_question><s_answer>",
-            )["predictions"][0]
+            )
         else:
             output = pretrained_model.inference(image=sample["image"], prompt=f"<s_{args.task_name}>")["predictions"][0]
 
@@ -55,6 +55,12 @@ def test(args):
             # Note: we evaluated the model on the official website.
             # In this script, an exact-match based score will be returned instead
             gt = ground_truth["gt_parses"]
+            print('---------------')
+            print(output)
+            print('---------------')
+            print('******************')
+            print(ground_truth)
+            print('******************')
             answers = set([qa_parse["answer"] for qa_parse in gt])
             score = float(output["answer"] in answers)
         else:
