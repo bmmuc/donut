@@ -61,6 +61,10 @@ def test(args):
             print('******************')
             print(ground_truth)
             print('******************')
+            print('########################')
+            print(answers)
+            print('########################')
+
             answers = set([qa_parse["answer"] for qa_parse in gt])
             score = float(output["answer"] in answers)
         else:
