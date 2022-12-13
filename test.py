@@ -58,7 +58,7 @@ def test(args):
             gt = ground_truth["gt_parses"]
             print('---------------')
             print(output)
-            output(output["answer"])
+            output = output['predictions']
             print('---------------')
             print('******************')
             print(ground_truth)
